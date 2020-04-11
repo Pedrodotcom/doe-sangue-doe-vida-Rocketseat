@@ -1,0 +1,195 @@
+/*CASCADING STYLESHEET
+css tricks
+fonts.google.com*/
+
+
+html, body {
+    margin: 0;
+}
+
+* { 
+    box-sizing: border-box; /*refere-se à característica herdada do browser. Caso não haja
+    esse comando, após ordenar-se a largura de 100%, o padding adicionaria 16pixels de cada
+    lado, tornando o elemento desalinhado. Pelo comando 'border-box', o padding adicionado 
+    posteriormente respeitará o limite definido pela largura.*/
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh; /*viewport height*/
+
+    /*FONTE*/
+    font-family: 'Roboto', sans-serif;
+
+    background-color: #f9f9f9;
+}
+
+/*Alinhamentos, espaçamentos. larguras e alturas*/
+
+/*ESTRUTURA*/
+
+header, main, footer {
+    text-align: center;
+}
+
+header, .form, main {
+    /*margin-bottom: 70px;*/
+    margin: 0 auto 70px auto;
+
+    /*limites dos elementos*/
+    width: 90%;
+    max-width: 500px;
+    /*
+    margin-right: auto;
+    margin-left: auto;
+    */
+}
+
+/*TÍTULOS*/
+
+header h1 {
+    font-size: 28pt;
+    color: white;
+    text-emphasis: margin;
+    text-shadow: 5px 5px 2px black;
+}
+
+header h1, main h2 { /*na cascata, utiliza-se o espaço para delimitar a origem do elemento subsequente
+ou seja, o primeiro elemento trata acerca da seção e o segundo na referenciação é o elemento em si.*/ 
+    margin-bottom: 70px;
+}
+
+main h2 span{
+    color: #ff4f4f;
+}
+
+.form h2 {
+    text-align: right;
+    color: #ffffffee;
+}
+
+header button {
+    padding: 10px 50px;
+    margin-top: 10px;
+    background-color: #f54141;
+    color: #ffffffee;
+    border-radius: 10px;
+    border: 1px #ffffffee solid;
+    box-shadow: 3px 3px 5px rgba(12, 7, 7, 0.5);
+
+    cursor: pointer;
+    outline: none;
+}
+
+/*FORM*/
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 45px;
+
+    align-items: center;
+    background-color: #ff4f4f;
+
+    padding: 16px 64px;
+
+    border-radius: 10px;
+}
+
+form input, form button {
+
+    width: 100%;
+
+    margin-bottom: 4px;
+
+    /*PREENCHIMENTO*/
+    /*padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;*/
+    padding: 8px 16px;
+
+    /*border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;*/
+
+    border-radius: 4px;
+
+    border: 1px #ffffff88 solid;
+}
+
+form input {
+    background-color: transparent;
+    color: white;
+}
+
+form input::placeholder{
+    color: #ffffffaa;
+}
+
+form button {
+    font-weight: bold;
+    color: #ff4f4f;
+    font: Arial;
+
+    cursor: pointer;
+    outline: none;
+}
+
+section.donors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.bloodtype {
+    color: #ff4f4f;
+    font-weight: bold;
+    font-size: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.bloodtype::before {
+    content:"";
+    background-color: #ff4f4f11;
+
+    width: 40px;
+    height: 40px;
+
+    position: absolute;
+
+    /*fazendo a gotinha*/
+    border-radius: 50%;
+    border-top-right-radius: 0;
+
+    transform: rotate(-45deg);
+}
+
+.donor p{
+    margin-top: 15px;
+
+}
+footer {
+    margin-top: auto;
+    padding: 16px;
+
+    border: 1px solid rgb(187, 185, 185)
+}
+/*FUNCIONALIDADES FEITAS NO SCRIPT*/
+
+section.form {
+    transition: all 300ms;
+}
+section.form.hide {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin-bottom: -70px;
+}
