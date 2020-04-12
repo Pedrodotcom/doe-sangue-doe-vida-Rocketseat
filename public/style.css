@@ -177,10 +177,13 @@ section.donors {
 
 }
 footer {
-    margin-top: auto;
+    width: 100%;
+    background: #fff;
     padding: 16px;
-
-    border: 1px solid rgb(187, 185, 185)
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    border-top: 1px solid rgb(187, 185, 185);
 }
 /*FUNCIONALIDADES FEITAS NO SCRIPT*/
 
@@ -191,5 +194,5 @@ section.form.hide {
     opacity: 0;
     visibility: hidden;
     height: 0;
-    margin-bottom: -70px;
+    margin-bottom: -100px;
 }
