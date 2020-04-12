@@ -23,7 +23,6 @@ server.get("/", function(request, response) {
         const reverseDonors = rows.reverse()
 
         let lastDonors = []
-
         for (let donor of reverseDonors) {
             if (lastDonors.length < 4) {
                 lastDonors.push(donor)
@@ -70,9 +69,7 @@ server.post("/", function(request, response) {
             return response.send(`Erro no banco de dados. Por favor, tente novamente.`)
         }
 
-        return response
-            .redirect("/")
-            .alert(`Cadastro concluído com sucesso. Obrigado por se comprometer!`)
+        return response.redirect("/")
     })
 })
 
