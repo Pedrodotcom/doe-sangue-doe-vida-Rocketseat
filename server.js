@@ -34,7 +34,7 @@ server.get("/", function(request, response) {
 
 })
 
-server.get("/", function(request, response) {
+server.get("/check", function(request, response) {
 
     db.all(`SELECT * FROM cadastro`, function(err, rows) {
         if (err) {
@@ -43,7 +43,7 @@ server.get("/", function(request, response) {
 
         const reverseDonors = rows.reverse()
 
-        return response.render(`index.html`, { cadastro: reverseDonors })
+        return response.send({ cadastro: reverseDonors })
     })
 
 })
