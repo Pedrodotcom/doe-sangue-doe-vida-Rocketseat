@@ -41,9 +41,10 @@ server.get("/check", function(request, response) {
             return response.send(`Erro no banco de dados. Por favor, tente novamente.`)
         }
 
-        const reverseDonors = rows.reverse()
+        return response.send({ cadastro: rows })
 
-        return response.send({ cadastro: reverseDonors })
+        //const reverseDonors = rows.reverse()
+        //return response.send({ cadastro: rows })
     })
 
 })
@@ -70,6 +71,32 @@ server.post("/", function(request, response) {
         }
 
         return response.redirect("/")
+    })
+})
+
+server.delete("/delete/all", function(req, res){ //delete per ID
+    const {id} = req.body
+
+    db.run(`DELETE FROM cadastro`, function(err) {
+        if(err) {
+            return res.status(400).send(`Erro no banco de dados. Por favor, tente novamente`)
+        }
+
+        console.log(`Rows deleted ${this.changes}`)
+        return res.send("Todos os doadores foram deletados!!!")
+    })
+})
+
+server.delete("/delete/:id", function(req, res){ //delete per ID
+    const {id} = req.params
+
+    db.run(`DELETE FROM cadastro WHERE id = ${id}`, function(err) {
+        if(err) {
+            return res.status(400).send(`Id inexistente. Por favor, tente novamente.`)
+        }
+
+        console.log(`Row deleted ${this.changes}`)
+        return res.send(`O doador de ID ${id} foi deletado.`)
     })
 })
 

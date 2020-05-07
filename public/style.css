@@ -12,6 +12,7 @@ html, body {
     esse comando, após ordenar-se a largura de 100%, o padding adicionaria 16pixels de cada
     lado, tornando o elemento desalinhado. Pelo comando 'border-box', o padding adicionado 
     posteriormente respeitará o limite definido pela largura.*/
+    outline: none;
 }
 
 body {
